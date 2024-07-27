@@ -84,7 +84,9 @@ func main() {
     if isRoman{
         intVar1=ToArabic(value1)
         intVar2=ToArabic(value2)
-        if intVar1>=1&&intVar2>=1&&intVar1<=10&&intVar2<=10{
+        if intVar1<1||intVar2<1||intVar1>10||intVar2>10{
+           panic("panic")
+        }
     switch operand {
 	case "+":
 		fmt.Println(ToRoman(intVar1+intVar2))
@@ -97,10 +99,10 @@ func main() {
 	case "*":
 	    fmt.Println(ToRoman(intVar1*intVar2))
 	case "/":
+	if intVar1/intVar2<1 {
+	        panic("panic")
+	}
 		fmt.Println(ToRoman(intVar1/intVar2))
-        }
-        }else {
-            panic("panic")
         }
     } else{
     intVar1, _=strconv.Atoi(value1)
@@ -116,7 +118,7 @@ func main() {
 	case "*":
 	    fmt.Println(intVar1*intVar2)
 	case "/":
-		fmt.Println(ToRoman(intVar1/intVar2))
+		fmt.Println(intVar1/intVar2)
 	}
     }
     }
